@@ -14,10 +14,16 @@ class Paginas extends Controller{
           $dados = $db->resultado();
           $this->view('paginas/livro', $dados);
      }// fim do método livro
+
      public function pesquisa(){
-          $dados=[];
+          if(isset($_GET["entry-search"])){
+               $tex = ($_GET["entry-search"]);
+               $db = new Database;
+               if (isset($tex)){
+                    $db->query("CALL pc_search_livros('".$tex."')");
+                    $dados = $db->resultados();}}
           $this->view('paginas/pesquisa', $dados);
-     }// fim do método livro
+     }// fim do método pesquisa
 }//fim da classe
 
 

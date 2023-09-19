@@ -136,7 +136,7 @@ body{
   max-width: 288px;
   width: 290px;
   padding: 20px;
-  background-color: rgb(236, 236, 236);
+  background-color: rgb(194, 194, 194);
   border-color: rgb(218, 218, 218);
   border-radius: 5px;
   display: flex;
@@ -195,4 +195,11 @@ header{
 }
 p{
   font-size: 20;
+}
+div .div-resenha{
+  margin: 0 15px 0 30px;
+  text-align: justify;
+}
+div .div-resposta{
+  margin-left: 45px;
 }
