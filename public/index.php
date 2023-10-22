@@ -8,12 +8,11 @@ include './../app/autoload.php'
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="<?=URL?>/public/Js/functions.js"></script>
-    <link rel="stylesheet" href="<?=URL?>/public/css/style.css" type="text/css">
     <title>Literatour</title>
 </head>
-
+<body>
 <?php
-include '../app/view/header.php';
+
 $rotas = new Rota();
 ?>
 

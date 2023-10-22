@@ -1,0 +1,368 @@
+/*inicio da logo*/
+.logo-container {
+    display: flex;
+    align-items:center;
+    margin-left: -750px; /* Adicione margem à esquerda para ajustar o espaço */
+  }
+  
+  /* Aplique estilos à logo */
+  .logoo {
+    width: 60px; /* Largura da logo */
+    margin-right: 10px; /* Espaçamento à direita da logo */
+  } /* FIM DA LOGO*/
+  
+  /*barra de pesquisa*/
+  #divBusca{
+    background-color:#E0EEEE;
+    border:solid 2px #5F9EA0;
+    border-radius:10px;
+    width:285px;
+    height:30px;
+    margin-left: -86px ;
+  }
+  
+  #txtBusca{
+    float:left;
+    background-color:transparent;
+    padding-left:5px;
+    font-size:18px;
+    border:none;
+    height:35px;
+    width:190px;
+    outline: 0;
+  }
+  
+  #btnBusca{
+    border:none;
+    float:left;
+    height:30px;
+    border-radius:0 7px 7px 0;
+    width:70px;
+    font-weight:bold;
+    background:#5F9EA0;
+  }
+  
+  #divBusca img{
+    float:left;
+    width: 25px;
+  }
+  
+  button, login {
+    border-radius: 15px;
+    border: 1px solid #E0E0E0;
+    background: none;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+  }
+  
+  .container {
+    display: flex; /* Use um flex container para alinhar os itens */
+    align-items: center; /* Alinhe verticalmente os itens ao centro */
+  }
+  
+  .texto {
+    text-decoration: underline;        
+    font-size: 30px; /* Defina o tamanho da fonte desejado, por exemplo, 18 pixels */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   /* font-family: Arial, sans-serif; /* Defina a família de fontes desejada */
+    color: #000000; /* Defina a cor desejada usando um valor hexadecimal, nome de cor ou valor RGB */
+    
+  }
+  
+  input{ 
+    border: none;
+    background: #ffffff;
+    padding: 12px 30px;
+    border-radius: 20px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 15px;
+    transition: .4s; 
+  }
+  
+  input:hover{ 
+    cursor: pointer; 
+    }
+  
+  /*FIM DA BARRA DE PEQUISA*/
+a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  a:hover {
+    opacity: 0.7;
+  }
+  
+  .logo {
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    background: #23232e;
+    height: 15vh;
+  }
+
+  body{
+    margin: 0;
+  }
+  
+  
+  
+  .nav-list {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-list h3{
+    color:#fff ;
+  }
+  
+  .nav-list li {
+    letter-spacing: 3px;
+    margin-left: 32px;
+  }
+  
+  .mobile-menu {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .mobile-menu div {
+    width: 32px;
+    height: 2px;
+    background: #fff;
+    margin: 8px;
+    transition: 0.3s;
+  }
+  
+  @media (max-width: 1920px) {
+    body {
+      overflow-x: hidden;
+    }
+    .nav-list {
+      position: absolute;
+      top: 8vh;
+      right: 0;
+      width: 25vw;
+      height: 92vh;
+      background: #23232e;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in;
+    }
+    .nav-list li {
+      margin-left: 0;
+      opacity: 0;
+    }
+    .mobile-menu {
+      display: block;
+    }
+  }
+  
+  .nav-list.active {
+    transform: translateX(0);
+  }
+  
+  @keyframes navLinkFade {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .mobile-menu.active .line1 {
+    transform: rotate(-45deg) translate(-8px, 8px);
+  }
+  
+  .mobile-menu.active .line2 {
+    opacity: 0;
+  }
+  
+  .mobile-menu.active .line3 {
+    transform: rotate(45deg) translate(-5px, -7px);
+  }
+  
+
+  /*TELA DE PERFIL*/
+
+  .container-perfil{
+    margin: 0 auto;
+    display: table;
+
+  }
+  .left{
+    float: left;
+    width: 214px;
+    height: 366px;
+  }
+  .right{
+    float: right;
+    display: table;
+    width: 60%;
+  }
+  .fa{
+    display: inline-block;
+  }
+  .image{
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    display: inline-block;
+    padding: 3px;
+    border: 3px solid #d2d6de;
+    margin-top: 20px;
+    margin-right: 57px;
+    margin-left: 57px;
+  
+  }
+  .has-feedback .form-control {
+      padding-right: 42.5px;
+  }
+
+  input{ 
+    border: solid 1px;
+    background: #dfdfdf;
+    padding: 12px 30px;
+    border-radius: 20px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 15px;
+    transition: .4s; 
+  }
+  
+  input:hover{ 
+    cursor: pointer; 
+    }
+
+  .form-control {
+      border-radius: 0;
+      box-shadow: none;
+      border-color: #d2d6de;
+  }
+
+  .form-control {
+      display: block;
+      width: 100%;
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #555;
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #ccc;
+  }
+ 
+  label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+  }
+  .usuername{
+      font-size: 21px;
+      margin-top: 5px;
+  }
+  .text-center {
+      text-align: center;
+  }
+  .btn{
+    margin: 0 auto;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-top: 100px;
+  }
+ 
+  .btn-primary {
+      color: #fff;
+      background-color: #337ab7;
+      display: block;
+  }
+  h3{
+      font-family: 'Source Sans Pro',sans-serif;
+  }
+  
+  .control-label{
+    float: left;
+  }
+  .form-horizontal .form-group {
+      margin-right: -15px;
+      margin-left: -15px;
+  }
+  
+  
+  .btn-submit {
+    background-color: #dd4b39;
+    border-color: red;
+  }
+  .btn {
+    border-radius: 3px;
+    box-shadow: none;
+    border: 1px solid transparent;
+  }
+  
+
+  .form-group {
+      margin-bottom: 15px;
+  }
+  .left.box-primary {
+      border-top-color: #3c8dbc;
+      
+  }
+  .left {
+      position: relative;
+      border-radius: 3px;
+      background: #ffffff;
+      border-top: 3px solid #d2d6de;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 3px;
+      border-bottom-left-radius: 3px;
+      padding: 10px;
+  }
+  button, meter, progress {
+      -webkit-writing-mode: horizontal-tb;
+  }
+  .col-sm-10{
+    margin-top:20PX ;
+  }
+  #textarea-sobre{
+    resize: none;
+  }
+
+
+/*FIM DA TELA DE PERFIL*/   
+
+
+  
