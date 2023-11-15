@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class Livros{
     public static function Resenha($id){
@@ -41,6 +41,13 @@ class Livros{
             return $dados;
         endif;
     }
+    public static function resultados($text){
+        if(isset($text)):
+            $db = new Database();
+            $db->query("SELECT fc_resultado_pesquisa('".$text."') AS 'valor'");
+            $dados = $db->resultado();
+            return $dados->valor;
+        endif;
+    }
 }
-
 ?>

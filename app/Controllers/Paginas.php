@@ -3,17 +3,24 @@ class Paginas extends Controller{
      
      public function index(){
           $db = new Database;
+
           $db->query("SELECT * from livro l inner join categoria c 
           on l.id_categoria = c.id_categoria
           inner join autor a 
           on a.id_autor = l.id_autor order by livro_add_dt desc limit 8;");
           $dados = $db->resultados();
-          $this->view('paginas/home', $dados);
-          }//fim do método index
 
-     public function login_cadastro(){
-          $dados = [];
-          $this->view('usuario/index', $dados);
+          $valor = [];
+          if (isset($_SESSION["usuario_id"])) :
+               $db->query("SELECT * from livro l inner join categoria c 
+               on l.id_categoria = c.id_categoria
+               inner join autor a on a.id_autor = l.id_autor
+               inner join edicao e on e.edit_livro = l.id_livro
+               where e.edit_user = ".$_SESSION['usuario_id']."
+               order by e.edit_hora desc limit 4;");
+               $valor = $db->resultados();
+               endif;
+          $this->view('paginas/home', $dados, $valor);
           }//fim do método index
 
      public function config(){
@@ -42,9 +49,10 @@ class Paginas extends Controller{
                     // Substitui o ":tex" pelo valor da variável $tex 
                     $db->bind("tex", $tex);
                     // Adiciona no array dados os resultados que retorna do banco de dados
-                    $dados = $db->resultados();}}
+                    $dados = $db->resultados();}
+          }
           // Puxa a view de pesquisa e joga o dados na view
-          $this->view('paginas/pesquisa', $dados);
+          $this->view('paginas/pesquisa', $dados, $tex);
      }// fim do método pesquisa
 }//fim da classe
 

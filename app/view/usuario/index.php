@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="<?=URL?>/public/css/style2.css" type="text/css">
 <div class="container_login" id="container">
         <div class="form-container sign-up-container">
-            <form action="#">
+            <form action="<?= URL ?>/usuarios/cadastrar" method="post">
                 <h1>Crie sua conta</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -11,14 +11,23 @@
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <span>Ou use seu e-mail já registrado</span>
-                <input type="text" placeholder="Nome" />
-                <input type="email" placeholder="Email" pattern ="^[a-zA-Z0-9_\.- ] +(\.[a-zA -Z0-9_\.-]+)*@[a-zA-Z0-9_\.-]+$" /> 
-                <input type="password" placeholder="Senha"/>
+                <input type="text" placeholder="Nome" value="<?= $dados['nome'] ?>" class="form-control <?= $dados['nome_erro'] ? 'is-invalid' : '' ?>" name="nome">
+                    <div class="invalid-feedback">
+                        <?= $dados['nome_erro'] ?>
+                    </div>
+                <input type="email" placeholder="Email" pattern ="^[a-zA-Z0-9_\.- ] +(\.[a-zA -Z0-9_\.-]+)*@[a-zA-Z0-9_\.-]+$" <?= $dados['email'] ?>" class="form-control <?= $dados['email_erro'] ? 'is-invalid' : '' ?>" name="email">
+                    <div class="invalid-feedback">
+                        <?= $dados['email_erro'] ?>
+                    </div>
+                <input type="password" placeholder="Senha"value="<?= $dados['senha'] ?>" class="form-control  <?= $dados['senha_erro'] ? 'is-invalid' : '' ?>" name="senha">
+                    <div class="invalid-feedback">
+                        <?= $dados['senha_erro'] ?>
+                    </div>
                 <button class="sec" id="right">Cadastro</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form action="#">
+            <form action="<?= URL ?>/usuarios/login" method="post">
                 <h1>Login</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -26,8 +35,14 @@
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <span>Ou use sua conta...</span>
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Senha" />
+                <input type="email" placeholder="Email" name="email" id="email" value="<?= $dados['email'] ?>" class="form-control <?= $dados['email_erro'] ? 'is-invalid' : '' ?>">
+                    <div class="invalid-feedback">
+                        <?= $dados['email_erro'] ?>
+                    </div>
+                <input type="password" placeholder="Senha" name="senha" id="senha" value="<?= $dados['senha'] ?>" class="form-control  <?= $dados['senha_erro'] ? 'is-invalid' : '' ?>">
+                    <div class="invalid-feedback">
+                        <?= $dados['senha_erro'] ?>
+                    </div>
                 <a href="#">Esqueceu sua senha?</a>
                 <button class="first" id="left">Entrar</button>
             </form>

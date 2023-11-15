@@ -1,6 +1,9 @@
 <?php
+session_start();
+
 include './../app/configs.php';
-include './../app/autoload.php'
+include './../app/autoload.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -11,6 +14,7 @@ include './../app/autoload.php'
     <title>Literatour</title>
 </head>
 <body>
+
 <?php
 
 $rotas = new Rota();

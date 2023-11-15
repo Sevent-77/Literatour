@@ -4,12 +4,12 @@
 
 <h1>Pesquisa</h1>
 
+<h1 id="result" style="font-size: 25px;"><?= Livros::resultados($valor)?></h1 >
 <div class = "container-flexbox">
 <?php 
+
 // Verifica dados se existem no banco de dados
-if ($dados == Null):
-    echo"<h3>Nenhum livro com este nome encontrado!</h3>";
-else:
+if ($dados != Null):
     // Caso tiver dados, será gerados divs para cada resultado
     foreach ($dados as $key):?>
         <div class="item" onclick="botaoClicado('<?=URL?>/',<?=$key->id_livro?>)">

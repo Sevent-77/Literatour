@@ -19,10 +19,10 @@
         <?= $dados->livro_sinopse ?>
     </p>
     <h2>Resesnha</h2>
-    <form action="" method="post">
-        <textarea name="" id="" cols="100" rows="2"></textarea>
+    <form action="<?= URL ?>/resenhas/cadastrar/<?= $dados->id_livro?>" method="post">
+        <textarea name="texto" id="" cols="100" rows="2"></textarea>
+        <input type="submit" value="Enviar">
     </form>
-    <input type="submit" value="Enviar">
     <?php
     if (Livros::checaResenha($dados->id_livro)):
         echo '<h3>Resesnhas não encontradas</h3>';
@@ -39,12 +39,20 @@
             <p>
                 <?= $resenha->resen_texto ?>
             </p>
+            
+            <button onclick="toggleReplyInput(<?= $resenha->id_resenha ?>)"><a style="color:#000000;">Responder</a></button>
+            <div id="reply-input-<?= $resenha->id_resenha ?>" style="display: none;">
+                <form action="<?=URL?>/resenhas/cadastrarResposta/<?= $resenha->id_resenha ?>/<?= $dados->id_livro?>" method="post">
+                    <textarea name="texto" id="" cols="100" rows="2"></textarea>
+                    <input type="submit" value="Enviar">
+                </form>
+                
+            </div>
+            <br><br><hr>
             <h4>Respostas</h4>
-            <form action="" method="post">
-                <textarea name="" id="" cols="100" rows="2"></textarea>
-            </form>
-            <input type="submit" value="Enviar">
+            
             <?php
+            
             if (Livros::checaResposta($resenha->id_resenha)): ?>
                 <?php
                 echo '<p>Respostas não encontradas</p>';
@@ -61,7 +69,7 @@
                     <p>
                         <?= $resposta->resposta_text ?>
                     </p>
-                <?php
+                    <?php
                 endforeach;
                 echo '</div>';
             endif;
@@ -72,3 +80,10 @@
     ?>
 
 </div>
+<script>
+    // JavaScript para mostrar/ocultar o campo de resposta
+    function toggleReplyInput(resenhaId) {
+        const replyInput = document.getElementById(`reply-input-${resenhaId}`);
+        replyInput.style.display = (replyInput.style.display === 'none' || !replyInput.style.display) ? 'block' : 'none';
+    }
+</script>
