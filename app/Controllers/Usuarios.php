@@ -11,7 +11,7 @@ class Usuarios extends Controller
     public function cadastrar()
     {
         $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-        
+
         if (isset($formulario)):
             $dados = [
                 'nome_erro' => '',
@@ -19,8 +19,8 @@ class Usuarios extends Controller
                 'senha_erro' => '',
                 'nome' => trim($formulario['nome']),
                 'email' => trim($formulario['email']),
-                'senha' => trim($formulario['senha'])/*,
-                'confirma_senha' => trim($formulario['confirma_senha']),*/
+                'senha' => trim($formulario['senha']) /*,
+'confirma_senha' => trim($formulario['confirma_senha']),*/
             ];
 
             if (in_array("", $formulario)):
@@ -37,7 +37,7 @@ class Usuarios extends Controller
                     $dados['senha_erro'] = 'Preencha o campo senha';
                 endif;
 
-                
+
             else:
                 if (Checa::checarNome($formulario['nome'])):
                     $dados['nome_erro'] = 'O nome informado é invalido';
@@ -48,7 +48,7 @@ class Usuarios extends Controller
                     $dados['email_erro'] = 'O e-mail informado já está cadastrado';
                 elseif (strlen($formulario['senha']) < 6):
                     $dados['senha_erro'] = 'A senha deve ter no minimo 6 caracteres';
-                
+
                 else:
                     $dados['senha'] = password_hash($formulario['senha'], PASSWORD_DEFAULT);
 

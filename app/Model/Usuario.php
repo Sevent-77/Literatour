@@ -39,6 +39,7 @@ class Usuario
 
     public function checarLogin($email, $senha)
     {
+        $this->db->query("CALL pc_login(:e)");
         $this->db->query("SELECT * FROM usuario WHERE user_email = :e");
         $this->db->bind(":e", $email);
 
@@ -53,10 +54,5 @@ class Usuario
             return false;
         endif;
     }
-
-    public function lerUsuarioPorId($id){
-        $this->db->query("SELECT * FROM usuario WHERE id_usuario = :id");
-        $this->db->bind('id', $id);
-        return $this->db->resultado();
-    }
+    
 }

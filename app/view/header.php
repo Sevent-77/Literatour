@@ -50,7 +50,7 @@
         <ul class="nav-list">
             <h3>Mais informações</h3>
             <li><a href="#">Sobre nós</a></li>
-            <li><a href="#">Favoritos</a></li>
+            <li><a href="<?= URL ?>/paginas/resenhados">Resenhados</a></li>
             <li><a href="<?= URL ?>/paginas/config">Perfil</a></li>
         </ul>
     </nav>

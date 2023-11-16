@@ -5,7 +5,7 @@ class Resenhas extends Controller
 
     public function __construct()
     {
-        if (!Sessao::estaLogado()) :
+        if (!Sessao::estaLogado()):
             //URL::redirecionar('usuarios/login');
         endif;
 
@@ -16,12 +16,12 @@ class Resenhas extends Controller
     public function cadastrar($id)
     {
         $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-        
-        if (!isset($_SESSION['usuario_id'])) :
+
+        if (!isset($_SESSION['usuario_id'])):
             echo "<script>alert('Cadastre-se ou entre antes de escrever a resenha!!');
-            window.location.href = ('".URL."/paginas/livro/".$id."');</script>";
+            window.location.href = ('" . URL . "/paginas/livro/" . $id . "');</script>";
         endif;
-        if (isset($formulario)&&$_SESSION['usuario_id']) :
+        if (isset($formulario) && $_SESSION['usuario_id']):
             $dados = [
                 'texto' => trim($formulario['texto']),
                 'livro' => $id,
@@ -29,22 +29,22 @@ class Resenhas extends Controller
             ];
             var_dump($dados);
 
-            if (in_array("", $formulario)) :
+            if (in_array("", $formulario)):
 
-                if (empty($formulario['texto'])) :
+                if (empty($formulario['texto'])):
                     $dados['texto_erro'] = 'Preencha o campo texto';
                 endif;
 
-            else :
-                if ($this->resenhaModel->armazenar($dados)) :
+            else:
+                if ($this->resenhaModel->armazenar($dados)):
                     Sessao::mensagem('resenha', 'Resenha cadastrado com sucesso');
-                    URL::redirecionar('paginas/livro/'.$id);
-                else :
+                    URL::redirecionar('paginas/livro/' . $id);
+                else:
                     die("Erro ao armazenar resenha no banco de dados");
                 endif;
 
             endif;
-        else :
+        else:
             $dados = [
                 'titulo' => '',
                 'texto' => '',
@@ -52,16 +52,16 @@ class Resenhas extends Controller
             ];
         endif;
 
-        
+
     }
-    public function cadastrarResposta($id,$livro)
+    public function cadastrarResposta($id, $livro)
     {
         $formulario = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-        if (!isset($_SESSION['usuario_id'])) :
+        if (!isset($_SESSION['usuario_id'])):
             echo "<script>alert('Cadastre-se ou entre antes de responder uma resenha!!');
-            window.location.href = ('".URL."/paginas/livro/".$livro."');</script>";
+            window.location.href = ('" . URL . "/paginas/livro/" . $livro . "');</script>";
         endif;
-        if (isset($formulario)&&$_SESSION['usuario_id']) :
+        if (isset($formulario) && $_SESSION['usuario_id']):
             $dados = [
                 'texto' => trim($formulario['texto']),
                 'resenha' => $id,
@@ -69,22 +69,22 @@ class Resenhas extends Controller
             ];
             var_dump($dados);
 
-            if (in_array("", $formulario)) :
+            if (in_array("", $formulario)):
 
-                if (empty($formulario['texto'])) :
+                if (empty($formulario['texto'])):
                     $dados['texto_erro'] = 'Preencha o campo texto';
                 endif;
 
-            else :
-                if ($this->resenhaModel->armazenarResposta($dados)) :
+            else:
+                if ($this->resenhaModel->armazenarResposta($dados)):
                     Sessao::mensagem('resenha', 'Resenha cadastrado com sucesso');
-                    URL::redirecionar('paginas/livro/'.$livro);
-                else :
+                    URL::redirecionar('paginas/livro/' . $livro);
+                else:
                     die("Erro ao armazenar resenha no banco de dados");
                 endif;
 
             endif;
-        else :
+        else:
             $dados = [
                 'titulo' => '',
                 'texto' => '',
@@ -93,6 +93,6 @@ class Resenhas extends Controller
 
         endif;
 
-            
+
     }
 }

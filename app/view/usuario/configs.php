@@ -17,7 +17,7 @@
                 <?php else: ?>
                     <h3 class="username text-center">Nome do usuário</h3>
                 <?php endif; ?>
-                
+
                 <a href="<?= URL ?>/usuarios/sair" class="btn btn-primary btn-block"><b>Sair</b></a>
 
             </div>
@@ -67,8 +67,16 @@
         </div>
         </div>
     </main>
-</body>
-
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget();
+    </script>
 </body>
 
 </html>
